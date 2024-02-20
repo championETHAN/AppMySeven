@@ -1,0 +1,9 @@
+﻿@model Enum
+@foreach (var value in Enum.GetValues(typeof(CalendarProjectV1.Models.Domain.PriorityEnum)))
+{
+        
+        <div class="form-check form-check-inline">
+            @Html.RadioButtonFor(m => m,value)
+            @Html.Label(value.ToString())
+        </div>
+}

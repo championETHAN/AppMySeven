@@ -1,0 +1,67 @@
+﻿html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: #204b44
+}
+
+th {
+    color: #957f36;
+    border-bottom-color: #957f36;
+}
+
+td {
+    color: white;
+
+}
+
+h1 {
+    color: white;
+}
+
+.table {
+    border-bottom-width: 1px;
+    border-bottom-color: #957f36;
+}
+
+label.form-label {
+    color: #957f36;
+    font-weight: bold;
+}
+
+/* Create seven equal columns that float next to each other */
+.columnHome {
+    float: left;
+    width: 14.2857%;
+}
+
+/* Clear floats after the columns */
+.rowHome:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other on smaller screens (600px wide or less) */
+@media screen and (max-width: 600px) {
+    .columnHome {
+        width: 100%;
+    }
+}

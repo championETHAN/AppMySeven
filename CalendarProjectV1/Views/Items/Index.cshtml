@@ -1,0 +1,55 @@
+﻿@model IEnumerable<CalendarProjectV1.Models.Domain.CalendarItem>
+@{
+
+}
+
+<div class="bg-secondary bg-opacity-10 m-5 py-2">
+    <div class="container row">
+            <div class="col">
+                <h1>Calendar Items</h1>
+            </div>
+
+            <div class="col offset-6">
+            <form asp-action="Index" method="get">
+                <div class="form-group">
+                    <label for="SearchString"></label>
+                    <input type="text" name="SearchString"
+                           value="@ViewData["CurrentStringFilter"]" />
+                            <input type="submit" value="Search" class="btn btn-primary" />
+                </div>
+            </form>
+            <a asp-action="Index"> Back to full list</a>
+            </div>
+        
+    </div>
+</div>
+
+<div>
+    <table class="table m-5">
+        <thead>
+            <tr>
+                <th>
+                    <a asp-action="Index" asp-route-SortStyle="@ViewData["SortByTitle"]">Title</a>
+                </th>
+                <th>
+                    <a asp-action="Index" asp-route-SortStyle="@ViewData["SortByDate"]">Date</a>
+                </th>
+                <th>Name Of Day Of Week</th>
+                <th>Id</th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var calendarItems in Model)
+            {
+                <tr>
+                    <td>@calendarItems.Title</td>
+                    <td>@calendarItems.AssignedDate.ToString("dd-MM-yyyy")</td>
+                    <td>@calendarItems.NameOfAssignedDate</td>
+                    <td>@calendarItems.Id</td>
+                    <td><a href="Items/View/@calendarItems.Id">View</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

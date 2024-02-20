@@ -1,0 +1,61 @@
+﻿@model CalendarProjectV1.Models.ViewModels.UpdateCalendarItemViewModel
+@{
+
+}
+<link href="~/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="~/js/froala_editor.pkgd.min.js"></script>
+
+<div class="bg-secondary bg-opacity-10 m-5 py-2">
+    <div class="container bs-light">
+        <h1>Edit Calendar Item</h1>
+    </div>
+</div>
+
+
+<div class="m-5">
+    @using (Html.BeginForm())
+    {
+        <div>
+
+            <div class="mb-3">
+                <label for="" class="form-label">Id</label>
+                <input type="text" class="form-control" asp-for="Id" readonly />
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Assign Date</label>
+                <input type="date" class="form-control" asp-for="AssignedDate" />
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Title</label>
+                <input type="text" class="form-control" asp-for="Title" />
+            </div>
+
+            <div class="mb-3">
+                <label for="" class="form-label">Location</label>
+                <input type="text" class="form-control" asp-for="Location" />
+            </div>
+
+            <div class="mb-3">
+                <label for="" class="form-label">Assign Priority:</label>
+                @Html.EditorFor(m => m.AssignedPriority,"AssignedPriority")
+            </div>
+
+            <div class="mb-3">
+                <textarea asp-for="Note" id="CalendarItemNoteEditor"></textarea>
+                <script>
+
+                    var editor = new FroalaEditor('#CalendarItemNoteEditor');
+
+                </script>
+
+            </div>
+
+            <button type="submit" class="btn btn-primary">Add to Calendar</button>
+            <button type="submit" class="btn btn-danger" 
+                    asp-action="Delete"
+                    asp-controller="Items">Delete Calendar Item</button>
+        </div>
+
+    }
+
+</div>
